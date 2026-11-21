@@ -99,6 +99,7 @@ print(isinstance(e1,Employee))
 print(isinstance(d1,Employee))
 
 
+
 # 3 types of methods:
 # Instance method
 # Class method
@@ -130,3 +131,90 @@ ei.setname(input("Enter the name:"))
 print(ei.__dict__)
 
 # Static method
+class bank:
+    bank_name='BOI'
+    rate_of_interest =12.25
+    @staticmethod
+    def simple_interest(pin,n):
+        si=(pin*n*bank.rate_of_interest)/100
+        print(si)
+float(input("Enter principal amount:"))
+n=int(input("Enter number of years:"))
+bank.simple_interest(200000,3)
+
+
+
+# Inheritance
+# Types Inheritance
+
+# 1st
+# Singles-level Inheritance
+# Multi-level Inheritance
+class father():                         # Single
+    def __init__(self):
+        print("father contructor called")
+        self.vehicle='Scooter'
+class son(father):
+    def __init__(self):
+        print("son contructor called")
+        self.vehicle='BMW'
+s=son()
+print(s.__dict__)
+
+# 2nd
+# Hierarchical Inheritance - one parent mutilple child
+class person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def display(self):
+        print('The person',self.name)
+class employee(person):
+    def __init__(self,name,age,sal):
+        super().__init__(name,age)
+        self.salary=sal
+    def display(self):
+        print('This is employee')
+class student(person):
+    def __init__(self,name,age,marks):
+        super().__init__(name,age)
+        self.marks=marks
+    def display(self):
+        print('This is student')
+
+student1=student('What',18,100)
+employee1=employee('vivek',23,240000)
+student1.display()
+
+# 3rd
+# Multiple Inheritance
+class country:
+    def __init__(self):
+        self.office='Delhi'
+class state:
+    def __init__(self):
+        super().__init__()
+        self.office='Mumbai'
+class District(state,country):
+    def __init__(self):
+        super().__init__()
+        print('Dirstict class')
+        self.office='Pune'
+d=District()
+print(d.__dict__)
+
+# 4th 
+# Hybrid Inheritance - mro
+class a:
+    pass
+class b:
+    pass
+class c:
+    pass
+class x(a,b,c):
+    pass
+class y(a,b):
+    pass
+class s(x,y):
+    pass
+print(s.mro())
