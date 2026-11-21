@@ -99,6 +99,11 @@ print(isinstance(e1,Employee))
 print(isinstance(d1,Employee))
 
 
+# 3 types of methods:
+# Instance method
+# Class method
+# Static method
+
 # Class methods - To change the variable inside the class
 class Employee:
     company_name="Google"
@@ -112,7 +117,6 @@ class Employee:
 e=Employee('Roy',40000)
 Employee.get_company_name()
 
-
 # 2 types of Instances method
 # Setter method :- set values of instance variables
 # getter method :- get values of instance variabes
@@ -125,3 +129,4 @@ ei=new()
 ei.setname(input("Enter the name:"))
 print(ei.__dict__)
 
+# Static method
