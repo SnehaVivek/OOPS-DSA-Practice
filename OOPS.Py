@@ -22,7 +22,7 @@ print(e1)
 # 3 types of constructor
 
 # Non-Parametize function
-class Employee:
+class Employee :
     def __init__(self):
         self.salary=22000
         self.age=21
@@ -45,7 +45,7 @@ e2=Email()
 print(e1)
 
 # Method inside the class
-class Employee:
+class Employee :
     def __init__(self,sal,arg):
         self.salary =sal
         self.age =arg
@@ -218,3 +218,56 @@ class y(a,b):
 class s(x,y):
     pass
 print(s.mro())
+
+
+# Encapsulation
+# Wrapping up data and methods working on data together in a single unit is called encapsulation.
+class finance:
+    def __init__(self):
+        self.revenue = 2000000    # This public data to make it private do "self.__revenue=10000"
+        self.number_sales = 114   # This is public data to make it protected data do "self._number_sales"
+f1=finance()
+print(f1.__dict__)
+class hr :
+    def __init__(self):
+        self.number_employees=23
+        print(f1.revenue)
+hr1=hr()
+print(f1.__dict__)
+
+
+# Polymorphism
+# Polymorphism is an ability to take many form
+emp=['jay','roy','nemo','seema']
+company ="Microsoft"
+for i in reversed(company):
+    print(i)
+print("for the list now")
+for i in reversed(emp):
+    print(i)
+
+# Polymorphism in inheritance
+class vec:
+    def __init__(self,name,color,price):
+        self.name=name
+        self.color=color
+        self.price = price
+    def get_details(self):
+        print("name is:",self.name)
+        print("color is:",self.color)
+        print("price is:",self.price)
+    def max_speed(self):
+        print("maximum speed limit is 100")
+    def gear(self):
+        print("gear change is 6")
+class car(vec):
+    def max_speed(self):
+        print("maximum speed limit is 140")
+    def gear(self):
+        print("gear change is 7")
+v1=vec("Truck",'red',20000000)
+c1=car("car",'white',700000)
+v1.get_details()
+c1.get_details()
+v1.max_speed()
+c1.max_speed()
