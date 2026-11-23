@@ -271,3 +271,49 @@ v1.get_details()
 c1.get_details()
 v1.max_speed()
 c1.max_speed()
+
+# Polymorphism in Functions and Objects
+class BWM:
+    def fuel_type(self):
+        print("Diesel")
+    def max_speed(self):
+        print("max speed is 200")
+
+class Ferrari:
+    def fuel_type(self):
+        print("Petrol")
+    def max_speed(self):
+        print("max speed is 180")
+
+def car_details(obj):
+    obj.fuel_type()
+    obj.max_speed()
+bmw=BWM()
+ferrari= Ferrari()
+car_details(bmw)
+
+
+# Operations Overloading
+num1=10
+num2=20
+print(num1+num2)
+print(num1.__add__(num2))
+print(int.__add__(num1,num2))
+print(dir(int))                 # Provide information about all the functions
+
+class book:
+    def __init__(self,title,pages):
+        self.title=title
+        self.pages=pages
+    def __add__(self,other):
+        total=self.pages+other.pages
+        return total
+    def __gt__(self,other):
+        return self.pages>other.pages
+
+b1=book('book1',200)
+b2=book('Book2',340)
+
+b3=book('latest',150)
+print("Total number of pages",b1.pages+b2.pages+b3.pages)
+
