@@ -317,3 +317,87 @@ b2=book('Book2',340)
 b3=book('latest',150)
 print("Total number of pages",b1.pages+b2.pages+b3.pages)
 
+
+# Nested class
+class Outer:
+    def __init__(self):
+        print('Outer class constructor called')
+    def display(self):
+        print('This is display method')
+
+    class Inner:
+        def __init__(self):
+            print('Inner constructor called')
+        def show(self):
+            print('This is show method')
+
+obj=Outer()
+in1=obj.Inner()
+in1.show()
+
+# Access member of one class inside another class
+class Employee:
+    def __init__(self,id,name,sal):
+        self.emp_id=id
+        self.emp_name=name
+        self.emp_sal=sal
+    def display(self):
+        print("Employee id",self.emp_id)
+        print("Employee name",self.emp_name)
+        print("Employee salary",self.emp_sal)
+class change:
+    @staticmethod
+    def increment(obj):
+        obj.emp_salary=obj.emp_salary+2000
+        obj.display()
+e1=Employee(101,'shan',349900)
+change.increment(e1)
+
+# Destructor
+class emp:
+    def __init__(self,nm):
+        self.name=nm
+    def display(self):
+        print(f"name is {self.name}")
+    def __del__(self):
+        print("DEstructor is called")
+t=emp("DORA")
+t.display()
+
+# Disadvantages of Destructor
+# Circular Referncing - when objects point each other
+# Exception occurs in __init__()
+
+# Callable()
+# __call__()
+c = 90
+def add(a,b):
+    return a+b
+print(add(a,b))      #add.__call__(10,2)
+print(type(add))
+print(add.__add__(10,20))
+print(callable(c))
+
+
+# Two types of decorators
+
+# Function decorators
+class decorator(object):
+    def __init__(self,func):
+        self.function=func
+    def __call__(self,a,c):
+        result=self.function(a,c)
+        return result**2
+def add(a,c):
+    return a+c
+add3=decorator(add)
+print(add(3,6))
+
+# Class decorators
+def add(*args):
+    sum1=30
+    for num in args:
+        sum1=sum1+num
+    return sum1
+print(add(10,50,60))
+print(add(40,57,27))
